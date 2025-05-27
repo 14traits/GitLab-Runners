@@ -1,7 +1,7 @@
 ---
 services:
   gitlab-runner:
-    image: docker.io/gitlab/gitlab-runner:alpine-v17.9.1
+    image: docker.io/gitlab/gitlab-runner:alpine3.21
     container_name: gitlab-runner-rpi
     volumes:
       - ./config/config.toml:/etc/gitlab-runner/config.toml:ro
