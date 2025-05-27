@@ -40,7 +40,7 @@ rpi-deploy:
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
     # - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=rpi --path="/docker" > .env
     # - sed -i "s/[']//g" .env
-    - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
+    # - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml down --remove-orphans"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml up -d"
@@ -76,7 +76,7 @@ prod-deploy:
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
     # - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
     # - sed -i "s/[']//g" .env
-    - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
+    # - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml down --remove-orphans"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml up -d"
@@ -112,7 +112,7 @@ dev-deploy:
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
     # - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=dev --path="/docker" > .env
     # - sed -i "s/[']//g" .env
-    - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
+    # - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml down --remove-orphans"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml up -d"
