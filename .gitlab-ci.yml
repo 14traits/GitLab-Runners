@@ -1,6 +1,7 @@
 stages: 
   - test
-  - skyfall_deploy
+  - skyfall_deploy_a
+  - skyfall_deploy_b
   - peckham_deploy
 
 compose-lint:
@@ -14,7 +15,7 @@ compose-lint:
 
 rpi-deploy:
   image: alpine:3.21
-  stage: skyfall_deploy
+  stage: skyfall_deploy_b
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
@@ -50,7 +51,7 @@ rpi-deploy:
 
 prod-deploy:
   image: alpine:3.21
-  stage: skyfall_deploy
+  stage: skyfall_deploy_b
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
@@ -85,7 +86,7 @@ prod-deploy:
 
 dev-deploy:
   image: alpine:3.21
-  stage: skyfall_deploy
+  stage: skyfall_deploy_a
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
@@ -120,7 +121,7 @@ dev-deploy:
 
 stag-deploy:
   image: alpine:3.21
-  stage: skyfall_deploy
+  stage: skyfall_deploy_a
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
