@@ -13,7 +13,7 @@ compose-lint:
   
 
 rpi-deploy:
-  image: alpine:latest
+  image: alpine:3.21
   stage: skyfall_deploy
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
@@ -49,7 +49,7 @@ rpi-deploy:
     - dev
 
 prod-deploy:
-  image: alpine:latest
+  image: alpine:3.21
   stage: skyfall_deploy
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
@@ -84,7 +84,7 @@ prod-deploy:
     - dev
 
 dev-deploy:
-  image: alpine:latest
+  image: alpine:3.21
   stage: skyfall_deploy
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
@@ -119,7 +119,7 @@ dev-deploy:
     - prod
 
 stag-deploy:
-  image: alpine:latest
+  image: alpine:3.21
   stage: skyfall_deploy
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
@@ -154,7 +154,7 @@ stag-deploy:
     - prod
 
 mp-deploy:
-  image: alpine:latest
+  image: alpine:3.21
   stage: peckham_deploy
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
@@ -189,7 +189,7 @@ mp-deploy:
     - dev
 
 mp-rpi-deploy:
-  image: alpine:latest
+  image: alpine:3.21
   stage: peckham_deploy
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
