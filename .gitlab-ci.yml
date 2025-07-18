@@ -43,7 +43,7 @@ rpi-deploy:
     - ssh-add id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
-    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
+    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=rpi --path="/docker" > .env
     - sed -i "s/[']//g" .env
     - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
@@ -119,7 +119,7 @@ skylab-deploy:
     - ssh-add id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
-    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
+    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=dev --path="/docker" > .env
     - sed -i "s/[']//g" .env
     - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
@@ -157,7 +157,7 @@ stag-deploy:
     - ssh-add id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
-    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
+    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=stag --path="/docker" > .env
     - sed -i "s/[']//g" .env
     - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
@@ -195,7 +195,7 @@ mp-deploy:
     - ssh-add id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
-    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
+    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=mp --path="/docker" > .env
     - sed -i "s/[']//g" .env
     - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
@@ -233,7 +233,7 @@ mp-rpi-deploy:
     - ssh-add id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
-    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
+    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=mp-rpi --path="/docker" > .env
     - sed -i "s/[']//g" .env
     - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
