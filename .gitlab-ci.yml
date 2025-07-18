@@ -43,13 +43,16 @@ rpi-deploy:
     - ssh-add id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
+    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
+    - sed -i "s/[']//g" .env
+    - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml down --remove-orphans"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml up -d"
   tags:
     - dev
 
-prod-deploy:
+winterfell-deploy:
   image: alpine:3.21
   stage: skyfall_deploy_b
   rules:
@@ -78,13 +81,16 @@ prod-deploy:
     - ssh-add id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
+    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
+    - sed -i "s/[']//g" .env
+    - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml down --remove-orphans"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml up -d"
   tags:
     - dev
 
-dev-deploy:
+skylab-deploy:
   image: alpine:3.21
   stage: skyfall_deploy_a
   rules:
@@ -113,6 +119,9 @@ dev-deploy:
     - ssh-add id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
+    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
+    - sed -i "s/[']//g" .env
+    - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml down --remove-orphans"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml up -d"
@@ -148,6 +157,9 @@ stag-deploy:
     - ssh-add id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
+    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
+    - sed -i "s/[']//g" .env
+    - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml down --remove-orphans"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml up -d"
@@ -183,6 +195,9 @@ mp-deploy:
     - ssh-add id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
+    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
+    - sed -i "s/[']//g" .env
+    - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml down --remove-orphans"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml up -d"
@@ -218,6 +233,9 @@ mp-rpi-deploy:
     - ssh-add id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
+    - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=prod --path="/docker" > .env
+    - sed -i "s/[']//g" .env
+    - scp -o StrictHostKeyChecking=no .env $SSH_USER@$SSH_HOST:$WORK_DIR
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml pull"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml down --remove-orphans"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml up -d"
