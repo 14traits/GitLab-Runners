@@ -1,7 +1,7 @@
 stages: 
   - test
-  - skyfall_deploy_a
-  - skyfall_deploy_b
+  - deploy_group_a
+  - deploy_group_b
   - peckham_deploy
 
 compose-lint:
@@ -15,7 +15,7 @@ compose-lint:
 
 rpi-deploy:
   image: alpine:3.21
-  stage: skyfall_deploy_b
+  stage: deploy_group_b
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
@@ -54,7 +54,7 @@ rpi-deploy:
 
 winterfell-deploy:
   image: alpine:3.21
-  stage: skyfall_deploy_b
+  stage: deploy_group_b
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
@@ -92,7 +92,7 @@ winterfell-deploy:
 
 skylab-deploy:
   image: alpine:3.21
-  stage: skyfall_deploy_a
+  stage: deploy_group_a
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
@@ -130,7 +130,7 @@ skylab-deploy:
 
 stag-deploy:
   image: alpine:3.21
-  stage: skyfall_deploy_a
+  stage: deploy_group_a
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
@@ -168,7 +168,7 @@ stag-deploy:
 
 mp-deploy:
   image: alpine:3.21
-  stage: skyfall_deploy_b
+  stage: deploy_group_b
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
@@ -206,7 +206,7 @@ mp-deploy:
 
 mp-rpi-deploy:
   image: alpine:3.21
-  stage: skyfall_deploy_a
+  stage: deploy_group_a
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
       changes:
