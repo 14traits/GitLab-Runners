@@ -10,6 +10,7 @@
         "gitlab/gitlab-runner:alpine(?<currentValue>3\\.\\d+)",
         "gitlab/gitlab-runner:alpine(?<depName>3\\.\\d+)-(?<currentValue>[a-zA-Z0-9]+)" 
       ],
+      "datasource": "Dockerfile",
       "depNameTemplate": "gitlab-org/gitlab-runner", 
       "packagePatterns": ["^alpine"]
     }
