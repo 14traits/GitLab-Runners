@@ -7,17 +7,12 @@
     {
       "matchDatasources": ["docker"],
       "matchManagers": ["dockerfile"],
-      "matchPackageNames": ["gitlab/gitlab-runner", "gitlab/gitlab-runner-helper"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "GitLab Runner Alpine Updates"
+      "matchPackageNames": ["gitlab/gitlab-runner"]
     },
     {
       "matchDatasources": ["docker"],
       "matchManagers": ["dockerfile"],
-      "matchPackageNames": ["alpine"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "Alpine Base Image Updates"
+      "matchPackageNames": ["alpine"]
     }
-
   ]
 }
