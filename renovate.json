@@ -12,7 +12,7 @@
       ],
       "datasource": "gitlab-tags",
       "depNameTemplate": "gitlab-org/gitlab-runner", // Specify the actual project path for the runner
-      "packagePatterns": ["^alpine"], 
+      "packagePatterns": ["^alpine"]
       // "excludePackagePatterns": ["^alpine-latest"], // You might want to exclude the "alpine-latest" flavor if it's not the desired behavior
       // "addLabels": ["renovate-alpine-runner-update"]
     }
