@@ -6,10 +6,6 @@
   "packageRules": [
   {
     "matchDatasources": ["docker"],
-    "matchPackageNames": [
-        "gitlab/gitlab-runner:alpine(?<currentValue>3\\.\\d+)",
-        "gitlab/gitlab-runner:alpine(?<depName>3\\.\\d+)-(?<currentValue>[a-zA-Z0-9]+)" 
-      ],
     "versioning": "loose"
   }
   ]
