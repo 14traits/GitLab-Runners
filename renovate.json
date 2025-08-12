@@ -8,13 +8,11 @@
       "fileMatch": ["(^|/)\\.gitlab-ci\\.ya?ml$", "(^|/)Dockerfile$"], 
       "matchStrings": [
         "gitlab/gitlab-runner:alpine(?<currentValue>3\\.\\d+)",
-        "gitlab/gitlab-runner:alpine(?<depName>3\\.\\d+)-(?<currentValue>[a-zA-Z0-9]+)" // For the commit SHA if desired
+        "gitlab/gitlab-runner:alpine(?<depName>3\\.\\d+)-(?<currentValue>[a-zA-Z0-9]+)" 
       ],
       "datasource": "gitlab-tags",
-      "depNameTemplate": "gitlab-org/gitlab-runner", // Specify the actual project path for the runner
+      "depNameTemplate": "gitlab-org/gitlab-runner", 
       "packagePatterns": ["^alpine"]
-      // "excludePackagePatterns": ["^alpine-latest"], // You might want to exclude the "alpine-latest" flavor if it's not the desired behavior
-      // "addLabels": ["renovate-alpine-runner-update"]
     }
   ] 
 }
