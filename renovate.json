@@ -2,17 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "assignees": [
     "@john"
-  ],
-  "packageRules": [
-    {
-      "matchDatasources": ["docker"],
-      "matchManagers": ["dockerfile"],
-      "matchPackageNames": ["gitlab/gitlab-runner"]
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchManagers": ["dockerfile"],
-      "matchPackageNames": ["alpine"]
-    }
   ]
 }
