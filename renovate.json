@@ -6,8 +6,18 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["/alpine3\\\\.21$/"],
-      "versioning": "loose"
+      "matchManagers": ["dockerfile"],
+      "matchPackageNames": ["gitlab/gitlab-runner", "gitlab/gitlab-runner-helper"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "GitLab Runner Alpine Updates"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchManagers": ["dockerfile"],
+      "matchPackageNames": ["alpine"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "Alpine Base Image Updates"
     }
+
   ]
 }
