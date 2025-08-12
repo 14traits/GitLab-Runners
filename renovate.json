@@ -2,5 +2,19 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "assignees": [
     "@john"
-  ]
+  ],
+  "packageRules": [
+    {
+      "fileMatch": ["(^|/)\\.gitlab-ci\\.ya?ml$", "(^|/)Dockerfile$"], 
+      "matchStrings": [
+        "gitlab/gitlab-runner:alpine(?<currentValue>3\\.\\d+)",
+        "gitlab/gitlab-runner:alpine(?<depName>3\\.\\d+)-(?<currentValue>[a-zA-Z0-9]+)" // For the commit SHA if desired
+      ],
+      "datasource": "gitlab-tags",
+      "depNameTemplate": "gitlab-org/gitlab-runner", // Specify the actual project path for the runner
+      "packagePatterns": ["^alpine"], 
+      // "excludePackagePatterns": ["^alpine-latest"], // You might want to exclude the "alpine-latest" flavor if it's not the desired behavior
+      // "addLabels": ["renovate-alpine-runner-update"]
+    }
+  ] 
 }
