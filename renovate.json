@@ -6,7 +6,7 @@
   "packageRules": [
     {
       "matchDatasources": ["docker"],
-      "matchPackageNames": ["alpine3.21-"],
+      "matchPackageNames": ["alpine3.21"],
       "versioning": "loose"
     }
   ]
