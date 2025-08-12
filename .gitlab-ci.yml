@@ -10,7 +10,7 @@ compose-lint:
   script:
     - docker compose -f compose.yml config --quiet --no-interpolate
   tags:
-    - dev
+    - prod
   
 
 rpi-deploy:
@@ -50,7 +50,7 @@ rpi-deploy:
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml down --remove-orphans"
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "docker compose -f $WORK_DIR/compose.yml up -d"
   tags:
-    - dev
+    - prod
 
 winterfell-deploy:
   image: alpine:3.21
