@@ -8,4 +8,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
 
-    # trigger for ci = 7
+    # trigger for ci = 8
