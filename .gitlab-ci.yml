@@ -188,9 +188,9 @@ skylab-deploy:
     - SSH_USER=$(infisical secrets get SSH_USER --plain --silent --domain=$INFISICAL_URL --projectId=$projectId --env=dev)
     - SSH_PRIVATE_KEY=$(infisical secrets get SSH_PRIVATE_KEY --plain --silent --domain=$INFISICAL_URL --projectId=$projectId --env=dev)
     - WORK_DIR=$(infisical secrets get WORK_DIR --plain --silent --domain=$INFISICAL_URL --projectId=$projectId --env=dev)
+    - echo "$SSH_PRIVATE_KEY" | base64 -d > id_rsa && chmod 600 id_rsa
     - eval $(ssh-agent -s)
     - ssh-add id_rsa
-    - echo "$SSH_PRIVATE_KEY" | base64 -d > id_rsa && chmod 600 id_rsa
     - ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "mkdir -p $WORK_DIR"
     - scp -o StrictHostKeyChecking=no compose.yml $SSH_USER@$SSH_HOST:$WORK_DIR
     - infisical export --domain=$INFISICAL_URL --projectId=$projectId --env=dev --path="/docker" > .env
