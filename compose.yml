@@ -6,6 +6,8 @@ services:
     volumes:
       - ./config/config.toml:/etc/gitlab-runner/config.toml:ro
       - /var/run/docker.sock:/var/run/docker.sock
-    restart: unless-stopped
+    restart: unless-stopped 
+    labels:
+      - com.centurylinklabs.watchtower.enable=false
 
     # trigger for ci = 8
