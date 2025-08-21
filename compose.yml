@@ -1,7 +1,7 @@
 ---
 services:
   gitlab-runner:
-    image: gitlab/gitlab-runner:alpine@sha256:03748fbe53bb59a43eb7421bf6e9d3ed50be5fa1af0d0fb4798846037e1e1ea1
+    image: gitlab/gitlab-runner:alpine@sha256:6760b480ad0c1500fddc03b4e41781bbb10ba9d86694acbcc8c7e07b4da53715
     container_name: gitlab-runner-${ENV}
     volumes:
       - ./config/config.toml:/etc/gitlab-runner/config.toml:ro
