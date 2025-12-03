@@ -13,7 +13,7 @@ compose-lint:
     - dev
   
 winterfell-deploy:
-  image: alpine:3.22
+  image: alpine:3.23
   stage: deploy_group_a
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
@@ -51,7 +51,7 @@ winterfell-deploy:
     - dev
 
 stag-deploy:
-  image: alpine:3.22
+  image: alpine:3.23
   stage: deploy_group_a
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
@@ -89,7 +89,7 @@ stag-deploy:
     - dev
 
 mp-rpi-deploy:
-  image: alpine:3.22
+  image: alpine:3.23
   stage: deploy_group_a
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
@@ -127,7 +127,7 @@ mp-rpi-deploy:
     - mp
 
 rpi-deploy:
-  image: alpine:3.22
+  image: alpine:3.23
   stage: deploy_group_b
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
@@ -165,7 +165,7 @@ rpi-deploy:
     - stag
 
 skylab-deploy:
-  image: alpine:3.22
+  image: alpine:3.23
   stage: deploy_group_b
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
@@ -203,7 +203,7 @@ skylab-deploy:
     - prod
 
 mp-deploy:
-  image: alpine:3.22
+  image: alpine:3.23
   stage: deploy_group_b
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
